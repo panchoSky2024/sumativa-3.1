@@ -1,0 +1,12 @@
+1-instalar pip (python -m pip install --upgrade pip)
+2-instalar requirements.txt (pip install -r requirements.txt)
+3-instalar pillow (pip install pillow)
+4-correr la pagina (python manage.py runserver)
+5-crear una cuenta (La contraseña debe tener una longitud de minimo 6 caracteres, si la cuenta se creo correctamente lo enviara a la pagina de iniciar sesion)
+6-iniciar sesion
+7-ver catalogo y añadir al carrito
+8-ver carrito y eliminar del carrito
+9-ponerme una buena nota
+
+
+cuenta de admin: gmail:pancho@pancho.cl contraseña:1234 

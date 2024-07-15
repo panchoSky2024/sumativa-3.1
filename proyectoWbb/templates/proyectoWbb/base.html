@@ -1,0 +1,154 @@
+{% load static %}
+{% if user.is_authenticated %}
+  Hola, {{ user.username }}
+  <form action="{% url 'autenticacion:cerrar_sesion' %}" method="post" class="logout-form">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+  </form>
+{% else %}
+  <a href="{% url 'autenticacion:ini' %}" class="btn btn-primary">Iniciar Sesión</a>
+{% endif %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'proyectoWbb/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">STREETSH</div>
+        <input type="checkbox" id="toggle">
+        <nav class="navigation">
+            <ul>
+                <li style="list-style-type: none;"><a href="{% url 'base' %}">Inicio</a></li>
+                <li style="list-style-type: none;">
+                    <a href="#">Cuenta</a>
+                    <ul>
+                        <li><a href="{% url 'autenticacion:ini' %}">Iniciar Sesión</a></li>
+                        <li><a href="{% url 'autenticacion:registro' %}">Registrarse</a></li>
+                    </ul>
+                </li>
+                <li style="list-style-type: none;"><a href="{% url 'catalogo' %}">Catálogo</a></li>
+                <li style="list-style-type: none;"><a href="{% url 'carrito' %}">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <br>
+<center>
+    {% if user.is_authenticated %}
+            <div class="welcome-message" style="background-color: black; color: aliceblue; font-family: Bebas Neue, sans-serif; padding: 30px; max-width: 500px; border-radius: 30px;"><h2>Bienvenido {{ user.username }}</h2></div>
+            <form action="{% url 'autenticacion:cerrar_sesion' %}" method="post" class="logout-form">
+                {% csrf_token %}
+                <br>
+                <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+            </form>
+        {% else %}
+        <br>
+        <br>
+            <div class="welcome-message" ><a href="{% url 'autenticacion:ini' %}" class="btn btn-primary">Iniciar Sesión</a></div>
+        {% endif %}
+</center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+    <div class="letra" style="background-color: black; color: aliceblue; padding: 20px;">
+        <h3>¡Grandes Referentes, que esperas a unirte!</h3>
+    </div>
+    </center>
+    <br>
+
+    <center>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="container">
+                    <div class="card border-dark custom-card" style="width: 290px; border-radius: 10px;">
+                        <img src="{% static 'proyectoWbb/img/neymar.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body" style="font-family: Bebas Neue, sans-serif;">
+                            <h5>Neymar da Silva Santos Junior</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="container">
+                    <div class="card border-dark custom-card" style="width: 300px; border-radius: 10px;">
+                        <img src="{% static 'proyectoWbb/img/messi.jpeg' %}" class="card-img-top" alt="...">
+                        <div class="card-body" style="font-family: Bebas Neue, sans-serif;">
+                            <h5>Lionel Andres Messi Cuccitini</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+    
+    <br>
+    <br>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <center>
+                    <h3>¡Potencia tu paso con estilo!</h3>
+                </center>
+            </div>
+            <div class="carousel-item">
+                <center>
+                    <h3>Prepárate para alcanzar tus metas</h3>
+                </center>
+            </div>
+            <div class="carousel-item">
+                <center>
+                    <h3>Elige la velocidad, elige comodidad</h3>
+                </center>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <center>
+        <img src="{% static 'proyectoWbb/img/fondozapatilla.webp' %}" class="imgpr" alt="...">
+    </center>
+    <br>
+    <br>
+    <center>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="card custom-card">
+                        <img src="{% static 'proyectoWbb/img/airjordan1.webp' %}" class="card-img-top img-fluid" alt="...">
+                        <div class="card-body">
+                            <p class="card-text" style="font-family: Bebas Neue, sans-serif; font-size: 20px;">Air Jordan 1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="card custom-card">
+                        <img src="{% static 'proyectoWbb/img/nikeairforce.webp' %}" class="card-img-top img-fluid" alt="...">
+                        <div class="card-body">
+                            <p class="card-text" style="font-family: Bebas Neue, sans-serif; font-size: 20px;">Nike Air Force 1 '07</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="card custom-card">
+                        <img src="{% static 'proyectoWbb/img/nocta.webp' %}" class="card-img-top img-fluid" alt="...">
+                        <div class="card-body">
+                            <p class="card-text" style="font-family: Bebas Neue, sans-serif; font-size: 20px;">NOCTA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+    <br>
+    <br>
+    <br>
+</body>
+</html>
